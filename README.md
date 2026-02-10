@@ -177,6 +177,15 @@ This ensures all players stay synchronized during a live match.
 
 ---
 
+## **Flow Chart**
+
+<img width="4284" height="17569" alt="image" src="https://github.com/user-attachments/assets/eaf9d605-8ec9-4d9e-b155-bc0f39ec806c" />
+
+
+
+
+---
+
 ## **Future Scope**
 
 * AI-based question generation
