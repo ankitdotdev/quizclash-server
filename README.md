@@ -191,11 +191,17 @@ Each quiz room maps to a Socket.IO room to isolate events.
 
 ## Flow Chart
 
-<img width="4284" height="17569" alt="QuizClash Flow Chart" src="https://github.com/user-attachments/assets/eaf9d605-8ec9-4d9e-b155-bc0f39ec806c" />
+[<img width="4284" height="17569" alt="QuizClash Flow Chart" src="https://github.com/user-attachments/assets/eaf9d605-8ec9-4d9e-b155-bc0f39ec806c" />](https://excalidraw.com/#json=fvYtSuAZbKa2NGNxSx4g6,Fyt3knk1B9wuqlf086Ms8A)
 
 
 ---
 
+
+## Schema Design
+
+https://dbdiagram.io/d/QuizClash-698b33ebbd82f5fce2439d09
+
+---
 ## Future Scope
 
 - Team battles
