@@ -1,0 +1,33 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "quizclash-mysql-ankitmishra-fae0.b.aivencloud.com",
+            "port": 14689,
+            "driver": "MySQL",
+            "database": "defaultdb",
+            "username": "avnadmin",
+            "name": "QuizClash-Aiven"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "quizclash-mysql-ankitmishra-fae0.b.aivencloud.com",
+            "port": 14689,
+            "driver": "MySQL",
+            "name": "quizclash-mysql",
+            "database": "defaultdb",
+            "username": "avnadmin",
+            "askForPassword": true
+        }
+    ]
+}
