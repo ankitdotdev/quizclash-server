@@ -1,200 +1,204 @@
-# QuizClash BACKEND- In Progress
-QuizClash is a real-time multiplayer MCQ platform where users compete solo or in teams, answering questions under time pressure with live scoring, rankings, and instant feedback.
+# QuizClash – Backend (In Progress)
 
+QuizClash is a real-time multiplayer MCQ platform where users compete individually in live quiz rooms with synchronized timers, instant scoring, and dynamic leaderboards.
 
-STRUCTURE
-1. Project Overview
-2. Problem Statement
-3. Solution
-4. Core Features
-5. User Roles
-6. High-Level System Architecture
-7. Tech Stack
-8. Database Design (high level)
-9. API Overview
-10. Real-Time Flow
-11. Scalability & Performance Considerations
-12. Security Considerations
-13. Future Scope
-14. Local Setup (later)
-
----
-
-# **QuizClash**
-
-## **Project Overview**
-
-QuizClash is a real-time multiplayer MCQ platform where users compete individually or in teams to test their knowledge under time pressure. Players join live rooms, answer questions simultaneously, and see instant scores and rankings as the game progresses.
-
-The platform is designed to make learning engaging, competitive, and measurable through real-time feedback and leaderboards.
-
----
-
-## **Problem Statement**
-
-Most students and learners consume content through books, PDFs, and videos, but rarely get an effective way to test and reinforce what they have learned. Traditional quiz apps are usually static, solo-based, and lack engagement, while classroom tests lack excitement and instant feedback.
-
-There is a need for a platform that combines **learning, competition, and real-time interaction** so that users can test themselves in a fun but high-pressure environment that improves retention and performance.
-
----
-
-## **Solution**
-
-QuizClash turns learning into a live competition.
-Instead of passively consuming content, users actively participate in real-time quizzes, competing against friends, classmates, or teammates.
-
-By introducing live rooms, timers, instant scoring, and rankings, QuizClash creates a game-like environment that:
-
-* Improves focus
-* Encourages repeated practice
-* Makes learning enjoyable and memorable
-
----
-
-## **Core Features**
-
-* Real-time MCQ gameplay
-* Individual, group, or team-based matches
-* Live rooms with access codes and passwords
-* Admin-hosted quiz sessions
-* Live timers for each question
-* Instant scoring and ranking
-* Leaderboards for individuals and teams
-* Question upload by admin (Excel or manual)
-
----
-
-## **User Roles**
-
-### **Admin**
-
-* Creates rooms
-* Uploads questions
-* Starts and controls the game
-* Monitors players and scores
-
-### **Player**
-
-* Joins rooms using a room code
-* Plays quizzes individually or as part of a team
-* Answers questions in real time
-* Views live scores and rankings
-
----
-
-## **High-Level System Flow**
-
-1. Admin creates a quiz room and uploads questions
-2. A room code and password are generated
-3. Players join the room using the code
-4. Admin starts the quiz
-5. Questions are broadcast in real time
-6. Players submit answers within the time limit
-7. Scores update live
-8. Final rankings are displayed when the game ends
-
----
-
-## **Tech Stack**
-
-**Backend**
-
-* Node.js
-
-**Frontend**
-
-* Next.js
-
-**Database**
-
-* PostgreSQL or MySQL (SQL-based for relational data and analytics)
-
-**Real-Time Communication**
-
-* Socket.IO
-
-**Hosting**
-
-* Backend: Render
-* Frontend: Vercel
-
----
-
-## **Database Design (High Level)**
-
-The system is designed using relational modeling for scalability and flexibility.
-
-**Main Entities**
-
-* Users
-* Rooms
-* Room Participants
-* Teams
-* Questions
-* Room Questions
-* Answers
-* Scores
-
-This allows:
-
-* Users to join multiple rooms
-* Teams to exist inside rooms
-* Accurate scoring and ranking
-* Match history and analytics
-
----
-
-## **Real-Time Flow**
-
-Socket.IO is used to handle:
-
-* Player joins and leaves
-* Question broadcasts
-* Countdown timers
-* Answer submissions
-* Live score updates
-* Final result announcements
-
-This ensures all players stay synchronized during a live match.
-
----
-
-## **Scalability & Performance Considerations**
-
-* Socket rooms are used to isolate game sessions
-* Database indexes on room, user, and score tables
-* Stateless backend with real-time layer
-* Support for horizontal scaling of game servers
-
----
-
-## **Security Considerations**
-
-* Room access protected by codes and passwords
-* Role-based access (Admin vs Player)
-* Validation of answer submissions
-* Prevention of duplicate or late answers
-
----
-
-## **Flow Chart**
-
-<img width="4284" height="17569" alt="image" src="https://github.com/user-attachments/assets/eaf9d605-8ec9-4d9e-b155-bc0f39ec806c" />
-
-
+The system focuses on:
+- Real-time synchronization
+- Data integrity
+- Accurate scoring
+- Scalable room-based architecture
 
 
 ---
 
-## **Future Scope**
+## Project Overview
 
-* AI-based question generation
-* Public tournaments
-* User profiles and match history
-* Skill ratings
-* Anti-cheat mechanisms
-* Mobile app
+QuizClash simulates a competitive test environment.
+
+Multiple users join a live room, answer timed MCQs simultaneously, and receive instant score updates based on correctness and response time.
+
+The backend ensures:
+- No duplicate answers
+- No late submissions
+- Reliable score calculation
+- Clean relational modeling
+
 
 ---
 
---- To be continued...
+## Problem Statement
+
+Most quiz platforms are static or solo-based. They lack:
+- Real-time competition
+- Instant scoring
+- Live ranking
+- Structured performance tracking
+
+There is a need for a synchronized multiplayer quiz system that ensures fairness, speed, and engagement.
+
+
+---
+
+## Solution
+
+QuizClash provides:
+
+- Room-based real-time quiz sessions
+- Admin-controlled question flow
+- Timed question broadcasting
+- Instant score calculation
+- Live leaderboard updates
+
+The backend ensures:
+- One answer per user per question
+- Timestamp-based validation
+- Score consistency
+- Full answer history tracking
+
+
+---
+
+## Core Features (Current Scope)
+
+- Real-time individual multiplayer quiz
+- Room creation with unique code
+- Admin-controlled quiz start
+- Timed questions
+- One answer per user per question
+- Instant score update
+- Live leaderboard
+- Final ranking display
+
+
+---
+
+## User Roles
+
+### Admin
+- Creates room
+- Adds questions
+- Starts quiz
+- Controls game flow
+
+### Player
+- Joins room using code
+- Answers questions within time limit
+- Views live score and ranking
+
+
+---
+
+## High-Level System Flow
+
+1. Admin creates room  
+2. Questions are attached to the room  
+3. Players join room  
+4. Admin starts quiz  
+5. Question is broadcast via Socket.IO  
+6. Players submit answer  
+7. Backend validates:
+   - Within time limit
+   - Not duplicate
+8. Score updates  
+9. Leaderboard broadcast  
+10. Game ends and final ranking is shown  
+
+
+---
+
+## Tech Stack
+
+Backend:
+- Node.js
+- Express
+- Socket.IO
+
+Database:
+- MySQL / PostgreSQL (Relational)
+
+Frontend:
+- Next.js
+
+Hosting:
+- Backend: Render
+- Frontend: Vercel
+
+
+---
+
+## Database Design (Core Tables)
+
+- Users
+- Rooms
+- Room Questions
+- Room Participants
+- Player Answers
+
+Design Principles:
+- Score stored separately for fast leaderboard reads
+- Answer history stored for validation and analytics
+- Unique constraints prevent duplicate answers
+- Foreign keys maintain relational integrity
+
+
+---
+
+## Real-Time Architecture
+
+Socket.IO handles:
+- Room join events
+- Question broadcast
+- Timer synchronization
+- Answer submission
+- Score updates
+- Game completion event
+
+Each quiz room maps to a Socket.IO room to isolate events.
+
+
+---
+
+## Data Integrity Strategy
+
+- UNIQUE(room_id, user_id) prevents duplicate joins
+- UNIQUE(room_id, question_id, user_id) prevents duplicate answers
+- Score updated only after validation
+- Timestamp validation prevents late submissions
+
+
+---
+
+## Scalability Considerations
+
+- Room isolation using socket rooms
+- Indexed foreign keys
+- Lightweight relational schema
+- Stateless backend for horizontal scaling
+
+
+---
+
+## Security Considerations
+
+- Role-based access control
+- Room code validation
+- Password-protected rooms
+- Server-side answer validation
+- Prevention of multiple submissions
+
+
+---
+
+## Flow Chart
+
+<img width="4284" height="17569" alt="QuizClash Flow Chart" src="https://github.com/user-attachments/assets/eaf9d605-8ec9-4d9e-b155-bc0f39ec806c" />
+
+
+---
+
+## Future Scope
+
+- Team battles
+- Performance analytics
+
+
